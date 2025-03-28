@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" style="background:#0f172a">
+  <!-- Abstract City Skyline -->
+  <g transform="translate(0 650)" opacity="0.15">
+    <path d="M0 400h100v-300h50v250h80v-200h60v150h70v-350h90v300h100v-250h120v400h100v-300h150v350h120v-200h80v250h100v-150h60v200h90v-300h100v400H0z" fill="#7dd3fc"/>
+  </g>
+  
+  <!-- Blockchain Connection Nodes -->
+  <g stroke="#38bdf8" stroke-width="2" opacity="0.3">
+    <circle cx="300" cy="400" r="15" fill="#1e3a8a"/>
+    <circle cx="800" cy="500" r="15" fill="#1e3a8a"/>
+    <circle cx="1200" cy="350" r="15" fill="#1e3a8a"/>
+    <circle cx="1600" cy="450" r="15" fill="#1e3a8a"/>
+    <path d="M300 400q175-50 500 100t800-50" stroke-dasharray="8 8"/>
+  </g>
+
+  <!-- Fractional Ownership Visualization -->
+  <g transform="translate(960 540)" opacity="0.8">
+    <circle r="200" fill="none" stroke="#6366f1" stroke-width="2"/>
+    <path d="M0 0v-200" stroke="#f59e0b" stroke-width="3"/>
+    <g transform="rotate(45)">
+      <path d="M0 0v-200" stroke="#10b981" stroke-width="3"/>
+    </g>
+    <g transform="rotate(90)">
+      <path d="M0 0v-200" stroke="#f59e0b" stroke-width="3"/>
+    </g>
+    <circle r="50" fill="#1e293b"/>
+    <path d="M-30-30l60 60m-60 0l60-60" stroke="#38bdf8" stroke-width="3"/>
+  </g>
+
+  <!-- Floating Tokens -->
+  <g fill="#38bdf8" opacity="0.4">
+    <rect x="150" y="200" width="40" height="40" rx="8" transform="rotate(45)"/>
+    <rect x="1700" y="800" width="40" height="40" rx="8" transform="rotate(45)"/>
+    <rect x="400" y="900" width="40" height="40" rx="8" transform="rotate(45)"/>
+    <rect x="1200" y="100" width="40" height="40" rx="8" transform="rotate(45)"/>
+  </g>
+
+  <!-- Interactive Highlights -->
+  <g stroke="#f59e0b" stroke-width="2" opacity="0.5">
+    <path d="M500 800q100-150 300-50t200 200" fill="none" stroke-dasharray="8 8"/>
+    <path d="M1400 200q-150 100-200 300t150 250" fill="none" stroke-dasharray="8 8"/>
+  </g>
+</svg>
