@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { Blocks, FileLock2, Users } from "lucide-react";
 
 
+const headerWords = ["Transforming", "Democratising", "Revolutionising", "Tokenizing"];
+
 const cardData = [
   {
     title: "Fractional Ownership",
@@ -13,7 +15,7 @@ const cardData = [
     icon: <Blocks size={40} color="#FF3B30" />,
   },
   {
-    title: "Transparent & Secure  Transactions",
+    title: "Transparent & Secure Transactions",
     description:
       "Every transaction is recorded on Hedera’s secure ledger for full transparency and trust.",
     icon: <FileLock2 size={40} color="#FF3B30" />,
@@ -27,15 +29,14 @@ const cardData = [
 ];
 
 const AnimatedHeaderWord = () => {
-  const words = ["Transforming", "Democratising", "Revolutionising", "Tokenizing"];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
+      setIndex((prev) => (prev + 1) % headerWords.length);
     }, 3000); // Change word every 3 seconds
     return () => clearInterval(timer);
-  }, []);
+  }, []); // headerWords is constant so we leave the dependency array empty
 
   return (
     <motion.span
@@ -44,14 +45,14 @@ const AnimatedHeaderWord = () => {
       transition={{ duration: 0.5 }}
       style={{ textShadow: "0 0 8px #FF3B30", fontWeight: "bold" }}
     >
-      {words[index]}
+      {headerWords[index]}
     </motion.span>
   );
 };
 
 export default function Home() {
   return (
-    <Paper
+    <Paper 
       elevation={0}
       sx={{
         minHeight: "80vh",
@@ -60,7 +61,7 @@ export default function Home() {
         justifyContent: "center",
         alignItems: "center",
         color: "white",
-        backgroundColor: "transparent", 
+        backgroundColor: "transparent", // keeps the parallax background visible
         position: "relative",
         zIndex: 2,
         p: 2,
@@ -85,7 +86,7 @@ export default function Home() {
           <AnimatedHeaderWord /> Real Estate Investment with Blockchain
         </Typography>
       </motion.div>
-
+      
       {/* Info Cards Carousel / Stack */}
       <Box sx={{ width: "100%", maxWidth: 800 }}>
         <Stack spacing={3}>
@@ -113,18 +114,14 @@ export default function Home() {
           ))}
         </Stack>
       </Box>
-
+      
       {/* Call-to-action button */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2 }}
       >
-        <Button
-          variant="outlined"
-          size="large"
-          sx={{ borderColor: "#FF3B30", color: "#FF3B30", mt: 4 }}
-        >
+        <Button variant="outlined" size="large" sx={{ borderColor: "#FF3B30", color: "#FF3B30", mt: 4 }}>
           Explore More
         </Button>
       </motion.div>
