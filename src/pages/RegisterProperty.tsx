@@ -2,7 +2,25 @@ import React, { useState } from "react";
 import { Box, Button, TextField, Typography, Stack, Paper } from "@mui/material";
 import { useWalletInterface } from "../services/wallets/useWalletInterface";
 import { getPropertyRegistryContract } from "../services/contractService";
-import { uploadPropertyMetadataToHFS } from "../services/hfsService";
+ 
+// Helper function that calls the serverless endpoint to upload file contents to HFS.
+async function uploadMetadata(contents: string): Promise<string> {
+  const response = await fetch('/api/uploadMetadata', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ contents }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText);
+  }
+
+  const data = await response.json();
+  return data.fileId;
+}
 
 export default function RegisterProperty() {
   // Form state for property details
@@ -46,6 +64,7 @@ export default function RegisterProperty() {
     }
 
     setStatusMessage("Uploading metadata to Hedera File Service...");
+
     // Build metadata object for HFS upload.
     const metadataObj = {
       propertyName,
@@ -65,8 +84,20 @@ export default function RegisterProperty() {
 
     let propertyURI;
     try {
-      // Upload metadata along with the property image
-      propertyURI = await uploadPropertyMetadataToHFS(propertyImageBase64, metadataObj);
+      // First, upload the property image to HFS
+      const imageFileId = await uploadMetadata(propertyImageBase64);
+
+      // Enrich metadata with the image file reference.
+      const enrichedMetadata = {
+        ...metadataObj,
+        propertyImage: imageFileId,
+      };
+
+      // Convert enriched metadata to JSON.
+      const metadataJSON = JSON.stringify(enrichedMetadata);
+
+      // Upload the metadata JSON to HFS.
+      propertyURI = await uploadMetadata(metadataJSON);
     } catch (error: any) {
       setStatusMessage("Error uploading metadata: " + error.message);
       return;
