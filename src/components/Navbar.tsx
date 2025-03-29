@@ -1,6 +1,6 @@
 import { AppBar, Button, Toolbar, Typography, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
-import MaliChainLogo from "../assets/malichain.png"; // Updated import
+import MaliChainLogo from "../assets/malichain.jpg"; 
 import { useWalletInterface } from '../services/wallets/useWalletInterface';
 import { WalletSelectionDialog } from './WalletSelectionDialog';
 

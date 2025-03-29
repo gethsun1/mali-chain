@@ -1,5 +1,5 @@
 import { Box, Typography, Stack } from '@mui/material';
-import MaliChainLogo from "../assets/malichain.png"; 
+import MaliChainLogo from "../assets/malichain.webp"; 
 import HederaLogo from "../assets/hederalogobg.png";
 import KenivestLogo from "../assets/kenivestlogo.png";
 import NSELogo from "../assets/nselogo.png";
