@@ -1,16 +1,14 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import RegisterProperty from "./pages/RegisterProperty";
+import Dashboard from "./pages/Dashboard";
 
 export default function AppRouter() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
-  )
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/register-property" element={<RegisterProperty />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  );
 }
