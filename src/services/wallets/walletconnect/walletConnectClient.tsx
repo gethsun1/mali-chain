@@ -1,3 +1,5 @@
+// src/services/wallets/walletconnect/walletConnectClient.tsx
+
 import { WalletConnectContext } from "../../../contexts/WalletConnectContext";
 import { useCallback, useContext, useEffect } from "react";
 import { WalletInterface } from "../walletInterface";
@@ -8,8 +10,7 @@ import {
   LedgerId,
   TokenAssociateTransaction,
   TokenId,
-  TransferTransaction,
-  Client
+  TransferTransaction
 } from "@hashgraph/sdk";
 import { ContractFunctionParameterBuilder } from "../contractFunctionParameterBuilder";
 import { appConfig } from "../../../config";
@@ -19,7 +20,6 @@ import {
   HederaJsonRpcMethod,
   HederaSessionEvent,
   HederaChainId
-  // Remove unused imports
 } from "@hashgraph/hedera-wallet-connect";
 import EventEmitter from "events";
 
@@ -30,7 +30,7 @@ const refreshEvent = new EventEmitter();
 const walletConnectProjectId = "377d75bb6f86a2ffd427d032ff6ea7d3";
 const currentNetworkConfig = appConfig.networks.testnet;
 const hederaNetwork = currentNetworkConfig.network;
-const hederaClient = Client.forName(hederaNetwork);
+// Removed unused variable: const hederaClient = Client.forName(hederaNetwork);
 
 // Metadata for the DAppConnector
 const metadata: SignClientTypes.Metadata = {
