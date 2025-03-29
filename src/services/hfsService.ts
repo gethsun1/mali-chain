@@ -6,9 +6,9 @@ import {
   FileId,
 } from "@hashgraph/sdk";
 
-// Use environment variables provided by CRA
-const operatorId = process.env.REACT_APP_OPERATOR_ACCOUNT_ID;
-const operatorKey = process.env.REACT_APP_OPERATOR_PRIVATE_KEY;
+// Use secure environment variables (not exposed to the client)
+const operatorId = process.env.OPERATOR_ACCOUNT_ID;
+const operatorKey = process.env.OPERATOR_PRIVATE_KEY;
 
 if (!operatorId || !operatorKey) {
   throw new Error("Missing operator account details in .env");
