@@ -75,10 +75,12 @@ export default function NavBar() {
       <AppBar position="fixed" sx={{ backgroundColor: 'rgba(0,0,0,0.8)', boxShadow: 'none' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <img src={MaliChainLogo} alt="MaliChain Logo" style={{ height: '40px', marginRight: '8px' }} />
-            <Typography variant="h6" color="white" noWrap>
-              MaliChain
-            </Typography>
+            <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+              <img src={MaliChainLogo} alt="MaliChain Logo" style={{ height: '40px', marginRight: '8px' }} />
+              <Typography variant="h6" color="white" noWrap>
+                MaliChain
+              </Typography>
+            </Link>
           </Box>
           {isMobile ? (
             <IconButton color="inherit" edge="end" onClick={handleDrawerToggle}>
@@ -87,13 +89,7 @@ export default function NavBar() {
           ) : (
             <Stack direction="row" spacing={2} alignItems="center">
               {navLinks.map((link) => (
-                <Button
-                  key={link.label}
-                  component={Link}
-                  to={link.path}
-                  variant="text"
-                  sx={{ color: 'white' }}
-                >
+                <Button key={link.label} component={Link} to={link.path} variant="text" sx={{ color: 'white' }}>
                   {link.label}
                 </Button>
               ))}
