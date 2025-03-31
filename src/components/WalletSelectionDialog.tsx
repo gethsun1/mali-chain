@@ -4,11 +4,10 @@ import { openWalletConnectModal } from "../services/wallets/walletconnect/wallet
 import MetamaskLogo from "../assets/metamask-logo.svg";
 import WalletConnectLogo from "../assets/walletconnect-logo.svg";
 
-
 interface WalletSelectionDialogProps {
   open: boolean;
   setOpen: (value: boolean) => void;
-  onClose: (value: string) => void;
+  onClose: () => void;
 }
 
 export const WalletSelectionDialog = (props: WalletSelectionDialogProps) => {
@@ -20,37 +19,35 @@ export const WalletSelectionDialog = (props: WalletSelectionDialogProps) => {
         <Button
           variant="contained"
           onClick={() => {
-            openWalletConnectModal()
+            openWalletConnectModal();
             setOpen(false);
           }}
         >
           <img
             src={WalletConnectLogo}
-            alt='walletconnect logo'
-            className='walletLogoImage'
-            style={{
-              marginLeft: '-6px'
-            }}
+            alt="walletconnect logo"
+            className="walletLogoImage"
+            style={{ marginLeft: "-6px" }}
           />
           WalletConnect
         </Button>
         <Button
           variant="contained"
           onClick={() => {
+            console.log("Metamask button clicked");
             connectToMetamask();
+            setOpen(false);
           }}
         >
           <img
             src={MetamaskLogo}
-            alt='metamask logo'
-            className='walletLogoImage'
-            style={{
-              padding: '4px 4px 4px 0px'
-            }}
+            alt="metamask logo"
+            className="walletLogoImage"
+            style={{ padding: "4px 4px 4px 0px" }}
           />
           Metamask
         </Button>
       </Stack>
     </Dialog>
   );
-}
+};
