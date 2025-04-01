@@ -1,6 +1,6 @@
 ---
 
-[![Cover Image](https://postimg.cc/HrQ6Gwz8)](https://postimg.cc/HrQ6Gwz8)
+[![malichainbg.png](https://i.postimg.cc/FH68LGJp/malichainbg.png)](https://postimg.cc/HrQ6Gwz8)
 
 # MaliChain: Transforming Real Estate Investment in Kenya
 
